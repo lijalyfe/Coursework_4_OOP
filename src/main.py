@@ -41,4 +41,8 @@ class SuperJobAPI:
     def get_top_vacancies(vacancies: List[dict], top_n: int) -> List[dict]:
         return vacancies[:top_n]
 
+    @staticmethod
+    def print_vacancies(cls, vacancies: List[dict]):
+        for vacancy in vacancies:
+            print(f"{vacancy['name']}\n{vacancy['employer']['name']}\n{vacancy['alternate_url']}\n{'-' * 30}\n")
 
