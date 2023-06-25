@@ -31,3 +31,8 @@ class SuperJobAPI:
                         filtered_vacancies.append(vacancy)
                         break
         return filtered_vacancies
+
+    @staticmethod
+    def sort_vacancies(vacancies: List[dict]) -> List[dict]:
+        return sorted(vacancies, key=lambda x: x['salary']['from'] if x['salary'] and x['salary']['from'] else 0,
+                      reverse=True)
