@@ -12,3 +12,6 @@ class HeadHunterAPI:
         response = requests.get(vacancies_url, params=params)
         response.raise_for_status()
         return response.json()['items']
+
+
+
