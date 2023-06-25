@@ -14,4 +14,8 @@ class HeadHunterAPI:
         return response.json()['items']
 
 
+class SuperJobAPI:
+    def __init__(self, app_key: str):
+        self.base_url = "https://api.superjob.ru/2.33.0"
+        self.headers = {'X-Api-App-Id': app_key}
 
