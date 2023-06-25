@@ -36,3 +36,9 @@ class SuperJobAPI:
     def sort_vacancies(vacancies: List[dict]) -> List[dict]:
         return sorted(vacancies, key=lambda x: x['salary']['from'] if x['salary'] and x['salary']['from'] else 0,
                       reverse=True)
+
+    @staticmethod
+    def get_top_vacancies(vacancies: List[dict], top_n: int) -> List[dict]:
+        return vacancies[:top_n]
+
+
