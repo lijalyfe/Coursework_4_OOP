@@ -19,3 +19,15 @@ class SuperJobAPI:
         self.base_url = "https://api.superjob.ru/2.33.0"
         self.headers = {'X-Api-App-Id': app_key}
 
+    @staticmethod
+    def filter_vacancies(hh_vacancies: List[dict], sj_vacancies: List[dict], filter_words: List[str]) -> List[dict]:
+        filtered_vacancies = []
+        for vacancy in hh_vacancies + sj_vacancies:
+            if not filter_words:
+                filtered_vacancies.append(vacancy)
+            else:
+                for word in filter_words:
+                    if word in vacancy['name'].lower():
+                        filtered_vacancies.append(vacancy)
+                        break
+        return filtered_vacancies
